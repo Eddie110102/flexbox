@@ -1,11 +1,11 @@
 const url = [
-  "03_flexbox-display.html",
-  "04_flexbox-flex-direction.html",
-  "05_flexbox-justify-content.html",
-  "06_flexbox-flex-wrap.html",
-  "07_flexbox-align-items.html",
-  "08_flexbox-align-content.html",
-  "09_flexbox-flex-items.html",
+  "index.html",
+  "flex-direction.html",
+  "justify-content.html",
+  "flex-wrap.html",
+  "align-items.html",
+  "align-content.html",
+  "flex-items.html",
 ];
 
 const title = [
