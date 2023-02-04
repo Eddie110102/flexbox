@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="nav.css" />
+    <title>flex-box</title>
+    <style>
+      .box {
+        border: 2px solid lightsalmon;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* width: 400px; */
+        /* box有給高度，item沒有給高度預設屬性會自動長滿 */
+        height: 150px;
+      }
+      .item {
+        width: 50px;
+        /* height: 50px; */
+        border: 1px solid blue;
+        background-color: lightblue;
+        font-size: 20px;
+      }
+      .flex-start {
+        align-items: flex-start;
+      }
+
+      /* .center{
+        align-items: center;
+      } */
+
+      /*.flex-end{
+        align-items: flex-end;
+      }*/
+
+      /* baseline 預設對齊文字 (先給三個div不同高度) */
+      /* .baseline{
+        align-items: baseline;
+      } 
+      .lh50{
+        height: 50px;
+        line-height: 50px;
+      }
+      .lh70{
+        height: 70px;
+        line-height: 70px;
+      }
+      .lh100{
+        height: 100px;
+        line-height: 100px;
+      } */
+
+      /* .stretch {
+        align-items: stretch;
+      } */
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul id="nav"></ul>
+    </nav>
+    <main>
+      <h1>flex-box中內容的對齊方式(切軸) align-items屬性(單行對齊)</h1>
+      <h2>flex-start (對齊切軸起點)</h2>
+      <div class="box flex-start">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+      </div>
+      <h2>center (對齊切軸中心)</h2>
+      <div class="box center">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+      </div>
+      <h2>flex-end (對齊切軸終點)</h2>
+      <div class="box flex-end">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+      </div>
+      <h2>baseline (對齊文字)</h2>
+      <div class="box baseline">
+        <div class="item lh50">item1</div>
+        <div class="item lh100">item2</div>
+        <div class="item lh70">item3</div>
+      </div>
+      <h2>stretch (如果item有設定高度，會影響實際的stretch結果)</h2>
+      <div class="box stretch">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+      </div>
+    </main>
+    <script src="./nav.js"></script>
+  </body>
+</html>

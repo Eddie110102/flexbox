@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    width: 15%;
+    margin: 20px;
+    position: relative;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+ul>li{
+    background-color: lightskyblue;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+ul>li>a{
+    color: black;
+}
+iframe{
+    width: 100vw;
+    overflow:hidden;
+}
+body{
+    display: flex;
+}
+main{
+    width: 85%;
+    padding: 20px;
+    border-left: 1px solid gray;
+}
