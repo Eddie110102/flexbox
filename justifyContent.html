@@ -23,24 +23,24 @@
       .flexStart {
         justify-content: flex-start;
       }
-      .flexEnd{
+      .flexEnd {
         justify-content: flex-end;
       }
-      .center{
+      .center {
         justify-content: center;
       }
-      .spaceAround{
+      .spaceAround {
         justify-content: space-around;
       }
-      .spaceBetween{
+      .spaceBetween {
         justify-content: space-between;
       }
     </style>
   </head>
   <body>
-      <ul id="nav"></ul>
+    <ul id="nav"></ul>
     <main>
-      <h1>justify-content屬性 - 設定flexbox中內容的對齊方式(主軸) </h1>
+      <h1>justify-content屬性 - 設定flexbox中內容的對齊方式(主軸)</h1>
       <div>
         <button id="flexStart" class="active">flex-start 屬性值(預設)</button>
         <button id="flexEnd">flex-end 屬性值</button>
@@ -71,9 +71,9 @@
         btns[i].addEventListener("click", (event) => {
           toggle(event, event.target.id);
           for (let i = 0; i < btns.length; i++) {
-          btns[i].classList.remove('active')
+            btns[i].classList.remove("active");
           }
-          event.target.className = 'active'
+          event.target.className = "active";
         });
       }
       function toggle(e, id) {

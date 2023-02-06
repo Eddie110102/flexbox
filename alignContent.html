@@ -10,11 +10,10 @@
       #box {
         border: 2px solid lightsalmon;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        /* width: 400px; */
-        /* box有給高度，item沒有給高度預設屬性會自動長滿 */
+        width: 300px;
+        justify-content: space-between;
         height: 150px;
+        flex-wrap: wrap;
       }
       .item {
         width: 50px;
@@ -24,51 +23,61 @@
         font-size: 20px;
       }
       .flexStart {
-        align-items: flex-start;
+        align-content: flex-start;
       }
       .center {
-        align-items: center;
+        align-content: center;
       }
       .flexEnd {
-        align-items: flex-end;
+        align-content: flex-end;
       }
-      /* baseline 預設對齊文字 (先給三個div不同高度) */
-      .baseline {
-        align-items: baseline;
+      .spaceAround {
+        align-content: space-around;
       }
-      .baseline .lh50 {
+      .spaceBetween {
+        align-content: space-between;
+      }
+      .stretch {
+        align-content: stretch;
+      }
+      .stretchwh .lh50 {
         height: 50px;
         line-height: 50px;
       }
-      .baseline .lh70 {
+      .stretchwh .lh70 {
         height: 70px;
         line-height: 70px;
       }
-      .baseline .lh100 {
+      .stretchwh .lh100 {
         height: 100px;
         line-height: 100px;
-      }
-      .stretch {
-        align-items: stretch;
       }
     </style>
   </head>
   <body>
     <ul id="nav"></ul>
     <main>
-      <h1>align-items屬性 - 設定flexbox中內容的單行對齊方式(切軸) </h1>
+      <h1>align-content屬性(多行對齊) - 設定flexbox中內容的對齊方式(切軸)</h1>
       <div>
-        <button id="stretch" class="active">stretch 屬性值(預設)</button>
-        <button id="flexStart">flex-start 屬性值(預設)</button>
-        <button id="center">center 屬性值</button>
+        <button id="stretch" class="active">stretch 屬性值 (預設)</button>
+        <button id="stretchwh">stretch 屬性值 (有高度)</button>
+        <button id="flexStart">flex-start 屬性值</button>
         <button id="flexEnd">flex-end 屬性值</button>
-        <button id="baseline">baseline 屬性值</button>
+        <button id="center">center 屬性值</button>
+        <button id="spaceAround">space-around 屬性值</button>
+        <button id="spaceBetween">space-between 屬性值</button>
       </div>
-      <h2>解釋：<span id="description">預設屬性(stretch) 如果item有設定高度，會影響實際的stretch結果</span></h2>
-      <div class="flex-start" id="box">
+      <h2>解釋：<span id="description">對齊切軸起點</span></h2>
+      <div id="box">
         <div class="item lh50">item1</div>
         <div class="item lh100">item2</div>
         <div class="item lh70">item3</div>
+        <div class="item">item4</div>
+        <div class="item">item5</div>
+        <div class="item">item6</div>
+        <div class="item">item7</div>
+        <div class="item">item8</div>
+        <div class="item">item9</div>
       </div>
     </main>
     <script src="./nav.js"></script>
@@ -80,21 +89,24 @@
         flexStart: "對齊切軸起點",
         flexEnd: "對齊切軸終點",
         center: "對齊切軸中心",
-        stretch: "如果item有設定高度，會影響實際的stretch結果",
-        baseline: "對齊文字 三個item設定不同高度，並且文字置中",
+        spaceAround: "上下留白，平均分配間隔",
+        spaceBetween: "上下不留白，平均分配間隔",
+        stretch: "自動填滿父層容器高度 (預設)</br>item沒有設定高度",
+        stretchwh:
+          "自動填滿父層容器高度</br>item有設定高度，會影響實際的stretch結果",
       };
       for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", (event) => {
           toggle(event, event.target.id);
           for (let i = 0; i < btns.length; i++) {
-          btns[i].classList.remove('active')
+            btns[i].classList.remove("active");
           }
-          event.target.className = 'active'
+          event.target.className = "active";
         });
       }
       function toggle(e, id) {
         box.className = id;
-        description.innerText = desText[id];
+        description.innerHTML = desText[id];
       }
     </script>
   </body>

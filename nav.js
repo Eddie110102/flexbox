@@ -1,11 +1,11 @@
 const url = [
   "index.html",
-  "flex-direction.html",
-  "justify-content.html",
-  "flex-wrap.html",
-  "align-items.html",
-  "align-content.html",
-  "flex-items.html",
+  "flexDirection.html",
+  "justifyContent.html",
+  "flexWrap.html",
+  "alignItems.html",
+  "alignContent.html",
+  "flexItems.html",
 ];
 
 const title = [
@@ -20,5 +20,12 @@ const title = [
 
 const nav = document.getElementById('nav')
 for(let i=0; i<url.length; i++){
-    nav.innerHTML += `<li><a href="${url[i]}">${title[i]}</a></li>`
+    nav.innerHTML += `<li onClick="toTargetPage(event)"><a href="${url[i]}">${title[i]}</a></li>`
+}
+let nowPage = location.href.split('/')[3]
+nav.childNodes[url.indexOf(nowPage)].classList.add('active')
+
+function toTargetPage(e){
+  // console.log(e.currentTarget.childNodes[0].href)
+  window.location.href = `${e.currentTarget.childNodes[0].href}`
 }
