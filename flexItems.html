@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="nav.css" />
-    <title>flex-box</title>
+    <title>彈性盒子flexbox</title>
     <style>
       #box,.box {
         border: 2px solid lightsalmon;
@@ -67,12 +67,13 @@
         <button id="alignSelf">align-self 屬性值</button>
         <button id="order">order 屬性值</button>
       </div>
-      <div class="box">
-        <div class="item fg1 width200 o9">item1</div>
-        <div class="item width200 fb250 as-center o10">item2</div>
-        <div class="item width200 fs0">item3</div>
+      <h2>對照組：<span id="originDesc">item未設定參數（預設為0，不伸展）</span></h2>
+      <div class="box" id="default">
+        <div class="item width200">item1</div>
+        <div class="item width200">item2</div>
+        <div class="item width200">item3</div>
       </div>
-      <h2>解釋：<span id="description">當父層寬度有剩餘空間時，設定內容元素寬度的伸展 (預設為0，不伸展)</span></h2>
+      <h2>解釋：<span id="description">當當父層寬度有剩餘空間時，設定為1的item會自動伸展(item1)</span></h2>
       <div class="flexGrow" id="box">
         <div class="item fg1 width200 o9">item1</div>
         <div class="item width200 fb250 as-center o10">item2</div>
@@ -83,13 +84,22 @@
     <script>
       const btns = document.querySelectorAll("button");
       const box = document.getElementById("box");
+      const origin = document.getElementById("default");
       const description = document.getElementById("description");
+      const originDesc = document.getElementById("originDesc");
+      const originDescText = {
+        flexGrow: "item未設定參數（預設為0，不伸展）",
+        flexShrink: "item未設定參數（預設為1，寬度不夠時，自動壓縮item寬度）",
+        flexBasis: "item未設定參數（自動抓取item的width值）",
+        alignSelf: "item未設定參數（父層容器要先設定高度）",
+        order: "item未設定參數（與座標X軸原理相同，負數在左，正數在右）",
+      }
       const desText = {
-        flexGrow: "當父層寬度有剩餘空間時，設定內容元素寬度的伸展 (預設為0，不伸展)",
-        flexShrink: "當父層寬度空間不足時，設定內容元素寬度的收縮 (預設為1，壓縮內寬度)",
-        flexBasis: "元素寬度的基準值，設定的數值大於剩餘寬度時，會自動填滿",
-        alignSelf: "個別元素對齊方式 (父層容器要先設定高度)",
-        order: "個項目前後排序，與座標X軸原理相同(負數在左，正數在右)",
+        flexGrow: "當父層寬度有剩餘空間時，設定為1的item會自動伸展(item1)",
+        flexShrink: "當父層寬度空間不足時，設定為0的item不會收縮(item3)",
+        flexBasis: "設定元素寬度，當數值大於剩餘寬度時會自動填滿(item2)",
+        alignSelf: "個別元素對齊方式(item2)",
+        order: "個項目前後排序(item2及item3)",
       };
       for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", (event) => {
@@ -102,7 +112,9 @@
       }
       function toggle(e, id) {
         box.className = id;
+        origin.className =  `box ${id}`
         description.innerHTML = desText[id];
+        originDesc.innerHTML = originDescText[id];
       }
     </script>
   </body>

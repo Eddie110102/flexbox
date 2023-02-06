@@ -36,7 +36,7 @@
         <button id="inlineFlex">inline-flex 屬性值</button>
       </div>
       <h2>解釋：<span id="description">預設屬性(block)</span></h2>
-      <div class="flex" id="box">
+      <div id="box">
         <div class="item">item1</div>
         <div class="item">item2</div>
         <div class="item">item3</div>
@@ -49,8 +49,8 @@
       const description = document.getElementById("description");
       const desText = {
         block: "預設屬性(block)",
-        flex: "flex-box大小不變",
-        inlineFlex: "flex-box大小隨著內容(items)尺寸而定",
+        flex: "flexbox容器大小不變",
+        inlineFlex: "flexbox容器大小隨著內容(items)尺寸而定",
       };
       for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", (event) => {

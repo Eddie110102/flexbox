@@ -43,7 +43,7 @@
         <button id="column">column 屬性值</button>
         <button id="columnReverse">column-reverse 屬性值</button>
       </div>
-      <h2>解釋：<span id="description">預設屬性(row) flex-box內容由左而右</span></h2>
+      <h2>解釋：<span id="description">設定flexbox內容由主軸起點開始(左到右)</span></h2>
       <div class="row" id="box">
         <div class="item">item1</div>
         <div class="item">item2</div>
@@ -56,10 +56,10 @@
       const box = document.getElementById("box");
       const description = document.getElementById("description");
       const desText = {
-        row: "預設屬性(row) flex-box內容由左而右",
-        rowReverse: "flex-box內容由右而左",
-        column: "flex-box內容由上而下",
-        columnReverse: "flex-box內容由下而上",
+        row: "設定flexbox內容由主軸起點開始(左到右)",
+        rowReverse: " 設定flexbox內容由主軸終點開始(右到左)",
+        column: " 設定flexbox內容由主軸起點開始(上到下)",
+        columnReverse: " 設定flexbox內容由主軸起點開始(下到上)",
       };
       for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", (event) => {
