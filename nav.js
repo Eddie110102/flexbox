@@ -22,7 +22,7 @@ const nav = document.getElementById('nav')
 for(let i=0; i<url.length; i++){
     nav.innerHTML += `<li onClick="toTargetPage(event)"><a href="${url[i]}">${title[i]}</a></li>`
 }
-let nowPage = location.href.split('/')[3]
+let nowPage = location.href.split('flexbox/')[1] //for github pages
 nav.childNodes[url.indexOf(nowPage)].classList.add('active')
 
 function toTargetPage(e){
